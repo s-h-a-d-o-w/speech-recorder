@@ -15,9 +15,9 @@ cd lib/build
 
 if [[ `uname -s` == "MINGW"* ]] ; then
   if [[ "$1" == "x86" ]] ; then
-    cmake -A Win32 -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
+    cmake -A Win32 ..
   elif [[ "$1" == "x64" ]] ; then
-    cmake -A x64 -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
+    cmake -A x64 ..
   fi
 elif [[ `uname -s` == "Darwin" ]] ; then
   if [[ "$1" == "x64" ]] ; then
