@@ -113,7 +113,7 @@ If you want to build speech-recorder from source, first install the necessary de
 
     ./setup.sh <arch>
 
-Where `<arch>` specifies the architecture you'd like to build for and is one of `x86`, `x64`, or `arm64`. If you're not sure, you probably want `x64`.
+Where `<arch>` specifies the architecture you'd like to build for and is one of `x64` or `arm64`. If you're not sure, you probably want `x64`.
 
 Then, you can build speech-recorder with:
 

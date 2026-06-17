@@ -78,23 +78,6 @@
                     },
                 ],
                 [
-                    'OS=="win" and target_arch=="ia32"',
-                    {
-                        "copies": [
-                            {
-                                "destination": "<(module_root_dir)/build/Release",
-                                "files": [
-                                    "<(module_root_dir)/lib/install/lib/portaudio_x86.dll",
-                                    "<(module_root_dir)/lib/3rd_party/vcruntime/x86/vcruntime140.dll",
-                                ],
-                            }
-                        ],
-                        "libraries": [
-                            "<(module_root_dir)/lib/install/lib/portaudio_x86.lib",
-                        ],
-                    },
-                ],
-                [
                     'OS=="win" and target_arch=="x64"',
                     {
                         "copies": [

@@ -5,7 +5,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 pushd "$HERE" &> /dev/null
 
 if [[ -z "$1" ]] ; then
-  echo "Usage: build.sh x86|x64|arm64 [github-token]"
+  echo "Usage: build.sh x64|arm64 [github-token]"
   exit 1
 fi
 
@@ -14,11 +14,7 @@ mkdir -p lib/build
 cd lib/build
 
 if [[ `uname -s` == "MINGW"* ]] ; then
-  if [[ "$1" == "x86" ]] ; then
-    cmake -A Win32 ..
-  elif [[ "$1" == "x64" ]] ; then
-    cmake -A x64 ..
-  fi
+  cmake -A x64 ..
 elif [[ `uname -s` == "Darwin" ]] ; then
   if [[ "$1" == "x64" ]] ; then
     cmake -DCMAKE_OSX_ARCHITECTURES=x86_64 ..
@@ -36,9 +32,6 @@ cd ../..
 rm -rf prebuilds
 
 node_arch="$1"
-if [[ "$1" == "x86" ]] ; then
-  node_arch="ia32"
-fi
 
 eval "npm_config_arch=$node_arch ./node_modules/.bin/node-gyp rebuild"
 

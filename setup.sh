@@ -5,7 +5,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 pushd "$HERE" &> /dev/null
 
 if [[ -z "$1" ]] ; then
-  echo "Usage: setup.sh x86|x64|arm64"
+  echo "Usage: setup.sh x64|arm64"
   exit 1
 fi
 
@@ -22,11 +22,7 @@ cd dist
 
 portaudio_cmake="cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
 if [[ `uname -s` == "MINGW"* ]] ; then
-  if [[ "$1" == "x86" ]] ; then
-    portaudio_cmake+=" -A Win32"
-  elif [[ "$1" == "x64" ]] ; then
-    portaudio_cmake+=" -A x64"
-  fi
+  portaudio_cmake+=" -A x64"
 elif [[ `uname -s` == "Darwin" ]] ; then
   portaudio_cmake+=" -DCMAKE_OSX_DEPLOYMENT_TARGET=10.14"
   if [[ "$1" == "x64" ]] ; then
@@ -52,10 +48,7 @@ if [[ `uname -s` == "MINGW"* ]] ; then
   unzip onnxruntime.zip
   cp -r build/native/include ../../lib/3rd_party/onnxruntime
 
-  path="win-x86"
-  if [[ "$1" == "x64" ]] ; then
-    path="win-x64"
-  fi
+  path="win-x64"
 
   cp runtimes/$path/native/*.dll ../../lib/3rd_party/onnxruntime/lib
   cp runtimes/$path/native/*.lib ../../lib/3rd_party/onnxruntime/lib
