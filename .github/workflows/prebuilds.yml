@@ -1,0 +1,65 @@
+name: Prebuilds
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  prebuild:
+    name: ${{ matrix.platform }} ${{ matrix.arch }}
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: linux
+            os: ubuntu-latest
+            arch: x64
+          - platform: macos
+            os: macos-13
+            arch: x64
+          - platform: macos
+            os: macos-13
+            arch: arm64
+          - platform: windows
+            os: windows-latest
+            arch: x64
+          - platform: windows
+            os: windows-latest
+            arch: x86
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+
+      # - name: Install Linux build dependencies
+      #   if: runner.os == 'Linux'
+      #   run: |
+      #     sudo apt-get update
+      #     sudo apt-get install -y libasound2-dev
+
+      - name: Install npm dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+
+      - name: Build native dependencies
+        shell: bash
+        run: bash setup.sh "${{ matrix.arch }}"
+
+      - name: Build and upload prebuild
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash build.sh "${{ matrix.arch }}" "$GITHUB_TOKEN"
