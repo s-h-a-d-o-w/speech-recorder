@@ -1,5 +1,5 @@
 {
-  "name": "speech-recorder",
+  "name": "@s-h-a-d-o-w/speech-recorder",
   "version": "2.1.0",
   "description": "A node.js library for streaming audio and speech from the microphone.",
   "main": "src/index.js",
@@ -8,7 +8,9 @@
   "license": "MIT",
   "gypfile": true,
   "binary": {
-    "napi_versions": [6]
+    "napi_versions": [
+      10
+    ]
   },
   "scripts": {
     "build": "bash build.sh",
@@ -17,11 +19,12 @@
   },
   "dependencies": {
     "bindings": "^1.5.0",
-    "node-addon-api": "^4.2.0",
-    "prebuild-install": "^7.0.0"
+    "node-addon-api": "^8.8.0",
+    "prebuild-install": "^7.1.3"
   },
   "devDependencies": {
-    "prebuild": "^11.0.0",
+    "node-gyp": "^13.0.0",
+    "prebuild": "^13.0.1",
     "wavefile": "^11.0.0"
   }
 }

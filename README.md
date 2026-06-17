@@ -1,3 +1,16 @@
+# Fork notes
+
+## Prerequisites
+
+- cmake
+
+## Notes
+
+`pnpm install` errors if there's no build. But we need the dependencies in order to build. Ignore the error.
+
+Prebuilds MUST BE PUBLISHED TO GITHUB using `./build.sh <arch> <GITHUB_TOKEN>`!! Otherwise, users won't be able to install the package. (The build chain is nix-only, which would be a problem for windows users.)
+
+
 # Speech Recorder
 
 speech-recorder is a cross-platform, native [node.js](https://nodejs.org) [addon](http://nodejs.org/api/addons.html) for getting a stream of audio from a device's microphone. Using speech-recorder, you can also get only the audio that corresponds to someone speaking.
