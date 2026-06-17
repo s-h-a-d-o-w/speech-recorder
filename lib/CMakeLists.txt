@@ -1,5 +1,6 @@
 if(WIN32)
-    cmake_minimum_required(VERSION 3.5)
+    cmake_minimum_required(VERSION 3.5...3.15)
+    set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
 else()
     cmake_minimum_required(VERSION 3.15)
 endif()
