@@ -9,10 +9,13 @@ if [[ -z "$1" ]] ; then
   exit 1
 fi
 
-libasound_status="$(dpkg-query -W -f='${Status}' libasound2-dev 2> /dev/null || true)"
-if [[ "$libasound_status" != "install ok installed" ]] ; then
-  echo "Missing required package: libasound2-dev"
-  exit 1
+if [[ `uname -s` == "Linux" ]] ; then
+  libasound_status="$(dpkg-query -W -f='${Status}' libasound2-dev 2> /dev/null || true)"
+  if [[ "$libasound_status" != "install ok installed" ]] ; then
+    echo "Missing required package: libasound2-dev"
+    echo "Install it with: sudo apt install libasound2-dev"
+    exit 1
+  fi
 fi
 
 rm -rf tmp lib/3rd_party/portaudio lib/3rd_party/onnxruntime
