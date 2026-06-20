@@ -10,6 +10,8 @@
 
 Prebuilds MUST BE PUBLISHED TO GITHUB using `./build.sh <arch> <GITHUB_TOKEN>`!! Otherwise, users won't be able to install the package. (The build chain is nix-only, which would be a problem for windows users.)
 
+Latest portaudio release was in 2021. Which is why it already requires the `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` override and may become incompatible sooner or later.
+
 
 # Speech Recorder
 
