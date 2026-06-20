@@ -12,6 +12,7 @@ Prebuilds MUST BE PUBLISHED TO GITHUB using `./build.sh <arch> <GITHUB_TOKEN>`!!
 
 Latest portaudio release was in 2021. Which is why it already requires the `-DCMAKE_POLICY_VERSION_MINIMUM=3.5` override and may become incompatible sooner or later.
 
+`prebuild-install` warns: `deprecated prebuild-install@7.1.3: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.`, yet the recommended `prebuildify` also seems unmaintained and outdated: `https://github.com/prebuild/prebuildify/issues/92` (although... due to semantic versioning, this shouldn't be a problem. User error maybe.).
 
 # Speech Recorder
 
