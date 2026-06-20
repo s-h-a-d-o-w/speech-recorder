@@ -3,7 +3,10 @@
   "version": "2.1.10",
   "description": "A node.js library for streaming audio and speech from the microphone.",
   "main": "src/index.js",
-  "repository": "https://github.com/s-h-a-d-o-w/speech-recorder",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-h-a-d-o-w/speech-recorder.git"
+  },
   "author": "Andreas Opferkuch",
   "license": "MIT",
   "gypfile": true,
