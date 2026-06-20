@@ -42,11 +42,11 @@ jobs:
         with:
           node-version: lts/*
 
-      # - name: Install Linux build dependencies
-      #   if: runner.os == 'Linux'
-      #   run: |
-      #     sudo apt-get update
-      #     sudo apt-get install -y libasound2-dev
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libasound2-dev
 
       - name: Install npm dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts

@@ -2,6 +2,7 @@
 
 ## Prerequisites
 
+- libasound2-dev (Audio backend. Can build without but then the binary won't detect any devices on linux.)
 - cmake
 
 ## Notes
