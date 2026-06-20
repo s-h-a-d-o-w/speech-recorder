@@ -12,6 +12,9 @@
       10
     ]
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "bash build.sh",
     "clean": "rm -rf build prebuilds lib/build lib/install",
